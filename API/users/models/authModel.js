@@ -12,15 +12,26 @@ const userSchema = mongoose.Schema(
         },
         CIN: {
             type: String,
+            unique: true,
             required: true
         },
         email: {
             type: String,
+            unique: true,
             required: true
         },
         password: {
             type: String,
             required: true
+        },
+        account_number: {
+            type: Number,
+            unique: true,
+            required: true
+        },
+        sold: {
+            type: Number,
+            default: 1000,
         }
     },
     {
