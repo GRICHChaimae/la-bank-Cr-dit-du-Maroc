@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser());
 
 app.use('/api/users', require('./users/routes/authRoutes'))
+app.use('/api/client', require('./users/routes/soldRoutes'))
 
 app.use(errorHandler)
 app.listen(port, console.log(`Server runing on port ${port}`))
