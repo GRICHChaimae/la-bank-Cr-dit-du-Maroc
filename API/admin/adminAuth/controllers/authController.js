@@ -17,7 +17,7 @@ const login = asyncHandler(async (req, res) =>  {
 
     if(admin && (await bcrypt.compare(password, admin.password))) {
 
-        const accessToken = generateAccessToken(admin.id)
+        const accessToken = generateAccessToken(admin.id, process.env.ACCESS_TOKEN_SECRET_ADMIN)
         res.json({
             message: 'admin logged succefully',
             accessToken: accessToken

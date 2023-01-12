@@ -64,7 +64,7 @@ const login = asyncHandler(async (req, res) => {
 
       // If the credentials are valid, generate a JWT and refresh token
 
-        const accessToken = generateAccessToken(user.id);
+        const accessToken = generateAccessToken(user.id, process.env.ACCESS_TOKEN_SECRET);
     //   const refreshToken = generateRefreshToken(user.id)
 
 
