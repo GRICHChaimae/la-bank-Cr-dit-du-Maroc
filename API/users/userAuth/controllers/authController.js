@@ -1,4 +1,4 @@
-const { generateAccessToken , generateRefreshToken } = require('../../utils/generateToken')
+const { generateAccessToken , generateRefreshToken } = require('../../../utils/generateToken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const User = require ('../models/authModel')

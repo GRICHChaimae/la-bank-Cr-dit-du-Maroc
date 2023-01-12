@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const User = require ('../models/authModel')
+const { addHistory } = require('../../userHistories/controllers/historiesController')
 
 const getSold = asyncHandler( async (req, res) => {
     const user = await User.findById(req.user.id)
@@ -38,12 +39,9 @@ const transferSold = asyncHandler( async (req, res) => {
                 new: true,
             })
 
-            console.log(newSoldReciever)
-            console.log(newSoldSender)
+            const addHistories = await addHistory(receiver.id, req, res)
         }
     }
-
-    res.json({message: 'passed succefuly'})
 })
 
 
