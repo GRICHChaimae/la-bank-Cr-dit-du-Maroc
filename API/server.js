@@ -24,6 +24,8 @@ app.use('/api/client', require('./users/userAuth/routes/soldRoutes'))
 app.use('/api/histories', require('./users/userHistories/routes/historiesRoures'))
 
 app.use('/api/admin', require('./admin/adminAuth/routes/authRoutes'))
+app.use('/api/dashboard', require('./admin/adminDashboard/routes/clientsRoutes'))
+
 
 app.use(errorHandler)
 app.listen(port, console.log(`Server runing on port ${port}`))
