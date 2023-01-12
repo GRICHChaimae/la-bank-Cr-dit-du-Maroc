@@ -23,7 +23,6 @@ const addHistory = asyncHandler(async (receiver_id, req, res) => {
 const getHistories = asyncHandler(async (req, res) => {
     const user_id = req.user.id
     const histories = (await Histories.find({ $or: [ {sender_id: user_id}, {reciever_id: user_id} ] }).sort({createdAt: 1})).reverse();
-    // console.log(histories)
     res.json({ message: 'get Histories work succefully', histories: histories})
 })
 
