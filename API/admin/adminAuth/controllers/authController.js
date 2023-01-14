@@ -19,9 +19,9 @@ const login = asyncHandler(async (req, res) =>  {
 
         const accessToken = generateAccessToken(admin.id, process.env.ACCESS_TOKEN_SECRET_ADMIN)
         res.json({
-            message: 'admin logged succefully',
             accessToken: accessToken
         })
+
     } else {
         res.status(401).json({ message: 'Invalid credentials' });
     }

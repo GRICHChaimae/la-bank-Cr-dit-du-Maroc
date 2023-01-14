@@ -3,7 +3,12 @@ const Client = require('../../../users/userAuth/models/authModel')
 
 const getClients = asynHnadler(async (req, res) => {
     clients = await Client.find()
-    res.json({Clients: clients})
+    res.status(200).json(clients)
+})
+
+const getOneClient = asynHnadler(async (req, res) => {
+    oneClient = await Client.findById(req.params.id)
+    res.status(201).json(oneClient)
 })
 
 const deleteClient = asynHnadler(async (req, res) => {
@@ -34,4 +39,4 @@ const updateClient = asynHnadler(async (req, res) => {
     res.status(200).json(updateClient)
 })
 
-module.exports = { getClients, deleteClient, updateClient }
+module.exports = { getClients, deleteClient, updateClient, getOneClient }

@@ -7,13 +7,11 @@ const { errorHandler } = require('./middlewares/errorMiddleware')
 const port = process.env.PORT || 5000
 const colors = require('colors')
 
+
 connectDB()
 
 const app = express()
-app.use(cors({
-    credentials: true,
-    origin: "http://localhost:5000",
-}))
+app.use(cors())
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
