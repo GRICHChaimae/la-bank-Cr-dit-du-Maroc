@@ -5,6 +5,6 @@ const { register } = require('../../../users/userAuth/controllers/authController
 const { protect } = require('../../adminAuth/middlewares/authMiddleware')
 
 router.get('/clients', protect, getClients).post('/addClient', protect, register)
-.delete('/deleteClient/:id', protect, deleteClient).put('/editClient/:id', updateClient).get('/oneClient/:id', protect, getOneClient)
+.delete('/deleteClient/:id', protect, deleteClient).put('/editClient/:id',protect, updateClient).get('/oneClient/:id', protect, getOneClient)
 
 module.exports = router

@@ -25,7 +25,7 @@ export default function ClientsProvider({ children }) {
 
     useEffect(() => {
         getClients()
-    }, [])
+    }, [clients])
 
   return (
     <ClientsContext.Provider value={clients}>

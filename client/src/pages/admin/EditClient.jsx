@@ -48,6 +48,8 @@ export default function EditClient() {
             await fetch(`http://localhost:5000/api/dashboard/editClient/${id}`, {
                 method: 'PUT',
                 headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+                    'Accept'       : 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({

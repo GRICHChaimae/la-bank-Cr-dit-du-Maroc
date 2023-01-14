@@ -1,6 +1,5 @@
-import React, { useState, createContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
-import cookie from 'cookie';
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import logo from '../../assets/logo13.png'
 import Input from '../../components/Input'
@@ -23,9 +22,7 @@ export default function AdminLogin() {
             [e.target.name]:e.target.value
         }))
     }
-
-    // const cookies = new Cookies();
-
+    
     const handleApi = async (e) =>{
         e.preventDefault()
         try {
