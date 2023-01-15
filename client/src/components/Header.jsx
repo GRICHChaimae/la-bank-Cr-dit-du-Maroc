@@ -61,6 +61,8 @@ export default function Header() {
                     {
                         localStorage.getItem("accessToken") ? 
                         <Button className="bg-cyan-600" onClick={() => {localStorage.removeItem('accessToken')
+                        localStorage.removeItem('user_id')
+                        localStorage.removeItem('userSold')
                          navigate('/')}}>Se déconnecter</Button> : 
                         (
                             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">

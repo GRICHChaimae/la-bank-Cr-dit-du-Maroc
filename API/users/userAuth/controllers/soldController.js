@@ -13,23 +13,26 @@ const transferSold = asyncHandler( async (req, res) => {
 
     const { account_number, virement } = req.body
 
-    const receiver = await User.findOne({ account_number })
+    const virementNumber = parseFloat(virement)
 
-    const sold = user.sold
-    const receiver_sold = receiver.sold
+    const receiver = await User.findOne({ account_number })
 
     if(!receiver){
         res.json({
             message: 'There is no user has this number account'
         })
     }else{
-        if(virement > sold) {
+        
+        const sold = user.sold
+        const receiver_sold = receiver.sold
+
+        if(virementNumber > sold) {
             res.json({
                 message: "You can not do this operation, your sold is not enough"
             })
         }else{
-            const newSoldReciever = receiver_sold + virement
-            const  newSoldSender = sold - virement
+            const newSoldReciever = receiver_sold + virementNumber
+            const  newSoldSender = sold - virementNumber
 
             const updateRecieverSold = await User.findByIdAndUpdate(receiver.id, {sold: newSoldReciever} , {
                 new: true,

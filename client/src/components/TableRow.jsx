@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import axios from "axios";
 import { ClientsContext } from '../contexts/ClientsContext'
@@ -21,10 +21,6 @@ export default function TableRow() {
             console.log(error)
         }
     }
-
-    useEffect(() => {
-        console.log('tttttttt')
-    }, [clients])
 
   return (
     <>

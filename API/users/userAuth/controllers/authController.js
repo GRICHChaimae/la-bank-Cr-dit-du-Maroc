@@ -62,13 +62,8 @@ const login = asyncHandler(async (req, res) => {
 
     if (user && (await bcrypt.compare(password, user.password))) {
 
-      // If the credentials are valid, generate a JWT and refresh token
-
         const accessToken = generateAccessToken(user.id, process.env.ACCESS_TOKEN_SECRET);
-    //   const refreshToken = generateRefreshToken(user.id)
-
-
-        res.json({ message: 'Successfully logged in', accessToken: accessToken });
+        res.json({ user_id: user.id, user_fname: user.fname, user_lname: user.lname , user_sold: user.sold, accessToken: accessToken });
     } else {
       // If the credentials are invalid, return an error
         res.status(401).json({ message: 'Invalid credentials' });
